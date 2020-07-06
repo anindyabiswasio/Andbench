@@ -84,7 +84,6 @@ void * doSomeThing(void * arg) {
 
 unsigned long cpu_calculate(int argc, char * argv[]) {
     unsigned long start = (unsigned long)time(NULL);
-    printf("\n%lu",((unsigned long)time(NULL)));
     if(strstr(argv[0], "nothreadtesttool")!=NULL) {
 	gNoThreads = 1;
     }
@@ -131,7 +130,6 @@ unsigned long cpu_calculate(int argc, char * argv[]) {
         	i++;
 	}
     }
-    printf("\n%lu",((unsigned long)time(NULL)));
     unsigned long diff = ((unsigned long)time(NULL))- start;
     return diff;
 }
