@@ -82,9 +82,9 @@ void * doSomeThing(void * arg) {
     	pthread_exit( & count);
 }
 
-int cpu_calculate(int argc, char * argv[]) {
-    clock_t start = clock(), diff;
-
+unsigned long cpu_calculate(int argc, char * argv[]) {
+    unsigned long start = (unsigned long)time(NULL);
+    printf("\n%lu",((unsigned long)time(NULL)));
     if(strstr(argv[0], "nothreadtesttool")!=NULL) {
 	gNoThreads = 1;
     }
@@ -131,8 +131,7 @@ int cpu_calculate(int argc, char * argv[]) {
         	i++;
 	}
     }
-    diff = clock() - start;
-
-    int msec = diff * 1000 / CLOCKS_PER_SEC;
-    return msec;
+    printf("\n%lu",((unsigned long)time(NULL)));
+    unsigned long diff = ((unsigned long)time(NULL))- start;
+    return diff;
 }

@@ -1,9 +1,10 @@
 #include<stdio.h>
 #include <time.h>
 
-int writeTest()
+unsigned long writeTest()
 {
-    clock_t start = clock(), diff;
+    unsigned long start = (unsigned long)time(NULL);
+   
     FILE *fp;
     fp = fopen("/tmp/speedtest.file", "w");
    
@@ -12,14 +13,13 @@ int writeTest()
         putc('0', fp);
    }
     fclose(fp);
-    diff = clock() - start;
-    int msec = diff * 1000 / CLOCKS_PER_SEC;
-    return msec;
+    unsigned long diff = ((unsigned long)time(NULL))- start;
+    return diff;
 }
 
-int readTest()
+unsigned long readTest()
 {
-    clock_t start = clock(), diff;
+    unsigned long start = (unsigned long)time(NULL);
     FILE *fp;
     fp = fopen("/tmp/speedtest.file", "r");
     char ch;
@@ -27,7 +27,6 @@ int readTest()
     
     // closing the file pointer
     fclose(fp);
-    diff = clock() - start;
-    int msec = diff * 1000 / CLOCKS_PER_SEC;
-    return msec;
+    unsigned long diff = ((unsigned long)time(NULL))- start;
+    return diff;
 }
